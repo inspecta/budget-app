@@ -1,0 +1,17 @@
+<div class="mx-auto md:w-2/3 w-full flex">
+  <div class="mx-auto">
+    <% if notice.present? %>
+      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
+    <% end %>
+
+    <%= render @entity %>
+
+    <div class="inline-block ml-2">
+      <%= button_to 'Destroy this entity',
+      user_entity_path(current_user.id, @entity.id), method: :delete,
+      class: "mt-2 py-3 px-5 bg-gray-100 font-medium border rounded-md"
+    %>
+      </div>
+    <%= link_to 'Back to entities', user_entities_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+  </div>
+</div>
