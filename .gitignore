@@ -36,3 +36,5 @@
 
 # Add local environment variables
 /config/local_env.yml
+
+/public/uploads/
