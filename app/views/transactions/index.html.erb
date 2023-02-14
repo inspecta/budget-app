@@ -1,0 +1,18 @@
+<div>
+  <h1>These are all the transactions</h1>
+
+  <h2 class="border bg-blue-50">Categories</h2>
+  <% @categories.each do |category| %>
+    <p>
+      <%= link_to category.name, user_transaction_path(current_user, category) %>
+    </p>
+  <% end %>
+  <p>
+    <%= link_to 'New entity', new_user_entity_path,
+    class: "border rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+  </p>
+
+  <p>
+      <%= link_to 'Back', user_groups_url %>
+  </p>
+</div>
