@@ -1,13 +1,22 @@
 class EntitiesController < ApplicationController
-  before_action :set_entity, only: %i[show edit update destroy]
+  before_action :authenticate_user!
 
   # GET /entities or /entities.json
   def index
-    @entities = Entity.all
+    @transactions = Entity.all
+    @categories = Group.all
   end
 
   # GET /entities/1 or /entities/1.json
-  def show; end
+  def show
+    # Transactions per category
+    @group_id = params[:id]
+    @transactions_per_group = Entity.where(group_id: @group_id).order(created_at: :desc)
+    @category_name = Group.find(@group_id).name
+
+    # Sum of amount of transactions in each category
+    @sum = Entity.where(group_id: @group_id).sum(:amount)
+  end
 
   # GET /entities/new
   def new
@@ -20,7 +29,7 @@ class EntitiesController < ApplicationController
 
     respond_to do |format|
       if @entity.save
-        format.html { redirect_to user_entities_url, notice: 'Entity was successfully created.' }
+        format.html { redirect_to user_groups_url, notice: 'Transaction was successfully created.' }
       else
         format.html { render :new, status: :unprocessable_entity }
       end
@@ -37,13 +46,6 @@ class EntitiesController < ApplicationController
       puts 'Not deleted'
       flash.now[:error] = "Oops. Couldn't delete entity."
     end
-  end
-
-  private
-
-  # Use callbacks to share common setup or constraints between actions.
-  def set_entity
-    @entity = Entity.find(params[:id])
   end
 
   # Only allow a list of trusted parameters through.

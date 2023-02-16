@@ -1,7 +1,13 @@
-<div class="mx-auto md:w-2/3 w-full">
-  <h1 class="font-bold text-4xl">New entity</h1>
+<div class="add-transaction-page">
+  <div class="transactions-header">
+    <div class="transactions-header-menu">
+      <%= image_tag("hamburger.png", :alt => "Menu Btn") %>
+      <P class="">ADD TRANSACTION</p>
+      <%= image_tag("search.png", :alt => "Search") %>
+    </div>
+  </div>
 
   <%= render "form", entity: @entity %>
 
-  <%= link_to 'Back to entities', user_entities_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
-  </div>
+  <%= link_to 'Back to transactions', user_groups_path(current_user) %>
+</div>
