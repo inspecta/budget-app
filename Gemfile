@@ -78,5 +78,3 @@ group :test do
   gem 'selenium-webdriver'
   gem 'webdrivers'
 end
-
-gem 'tailwindcss-rails', '~> 2.0'
