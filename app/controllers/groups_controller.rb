@@ -1,13 +1,14 @@
 class GroupsController < ApplicationController
+  before_action :authenticate_user!
+
   before_action :set_group, only: %i[show edit update destroy]
 
-  # GET /groups or /groups.json
+  # GET /groups
   def index
     @groups = Group.all
-    # @category = Entity.where(:group_id, @group.id)
   end
 
-  # GET /groups/1 or /groups/1.json
+  # GET /groups/1
   def show; end
 
   # GET /groups/new
@@ -15,30 +16,19 @@ class GroupsController < ApplicationController
     @group = Group.new
   end
 
-  # POST /groups or /groups.json
+  # POST /groups
   def create
     @group = Group.new(author_id: current_user.id, **group_params)
 
     respond_to do |format|
       if @group.save
-        format.html { redirect_to user_group_url(current_user, @group), notice: 'Group was successfully created.' }
+        format.html do
+          redirect_to user_groups_url(current_user),
+                      notice: 'Group was successfully created.'
+        end
       else
         format.html { render :new, status: :unprocessable_entity }
       end
-    end
-  end
-
-  # DELETE /groups/1 or /groups/1.json
-  def destroy
-    @group = Group.find(params[:id])
-    puts @group
-    if @group.destroy
-      respond_to do |format|
-        format.html { redirect_to user_groups_url, notice: 'Group was successfully destroyed.' }
-      end
-    else
-      puts 'Not deleted'
-      flash.now[:error] = "Oops. Couldn't delete group."
     end
   end
 
@@ -53,8 +43,4 @@ class GroupsController < ApplicationController
   def group_params
     params.require(:group).permit(:name, :icon)
   end
-
-  # def find_group_transactions
-  #   @group_id_transactions = params
-  # end
 end

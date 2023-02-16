@@ -1,14 +1,26 @@
-<div class="w-full">
-  <% if notice.present? %>
-    <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-  <% end %>
-
-  <div class="flex justify-between items-center">
-    <h1 class="font-bold text-4xl">Transactions</h1>
-    <%= link_to 'New entity', new_user_entity_path, class: "rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+<div class="category-transactions">
+  <div class="transactions-header">
+    <div class="transactions-header-menu">
+      <%= image_tag("hamburger.png", :alt => "Menu Btn") %>
+      <P class="">CATEGORIES</p>
+      <%= image_tag("search.png", :alt => "Search") %>
+    </div>
   </div>
+  <div class="category-transactions-details">
+    <h2 class="border bg-blue-50">Categories</h2>
+    <% @categories.each do |category| %>
+      <div class="category-transactions-details-info">
+        <%= link_to user_entity_path(current_user, category) do %>
+          <p><%= category.name %></p>
+          <p><%= category.icon_data %></p>
+        <% end %>
+      </div>
+    <% end %>
+    <p>
+      <%= link_to 'New entity', new_user_entity_path,
+      class: "border rounded-lg py-3 px-5 bg-blue-600 text-white block font-medium" %>
+    </p>
 
-  <div id="entities" class="min-w-full">
-    <%= render @entities %>
+    <p><%= link_to 'Back', user_groups_url %></p>
   </div>
 </div>

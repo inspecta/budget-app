@@ -12,18 +12,17 @@
   <% end %>
 
   <div class="my-5">
-    <%= form.label :name %>
-    <%= form.text_field :name, class: "block shadow rounded-md border border-gray-200 outline-none px-3 py-2 mt-2 w-full" %>
+    <%= form.text_field :name, class: "", placeholder: "Name" %>
   </div>
 
   <div class="my-5">
-    <%= form.label :icon %>
+    <p>Category Icon</p>
     <%= image_tag form.object.icon_url if form.object.cached_icon_data %>
     <%= form.hidden_field :icon, value: form.object.cached_icon_data %>
     <%= form.file_field :icon %>
   </div>
 
   <div class="inline">
-    <%= form.submit class: "rounded-lg py-3 px-5 bg-blue-600 text-white inline-block font-medium cursor-pointer" %>
+    <%= form.submit "Save", class: "add-category-btn" %>
   </div>
 <% end %>

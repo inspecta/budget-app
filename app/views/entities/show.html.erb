@@ -1,17 +1,47 @@
-<div class="mx-auto md:w-2/3 w-full flex">
-  <div class="mx-auto">
-    <% if notice.present? %>
-      <p class="py-2 px-3 bg-green-50 mb-5 text-green-500 font-medium rounded-lg inline-block" id="notice"><%= notice %></p>
-    <% end %>
-
-    <%= render @entity %>
-
-    <div class="inline-block ml-2">
-      <%= button_to 'Destroy this entity',
-      user_entity_path(current_user.id, @entity.id), method: :delete,
-      class: "mt-2 py-3 px-5 bg-gray-100 font-medium border rounded-md"
-    %>
+<div class="transactions-page">
+  <div class="transactions-header">
+    <div class="transactions-header-menu">
+      <%= image_tag("hamburger.png", :alt => "Menu Btn") %>
+      <P class="">TRANSACTIONS</p>
+      <%= image_tag("search.png", :alt => "Search") %>
+    </div>
+    <div class="transactions-header-cats">
+      <p>Most recent</p>
+      <p>Most acient</p>
+    </div>
+  </div>
+  <% if @transactions_per_group.empty? %>
+    <p>No transactions available.</p>
+  <% else %>
+    <div class="transactions-details">
+      <div class="txn-name-sum">
+        <p class="category-name"><%= @category_name.upcase %></p>
+        <p>$<%= @sum %></p>
       </div>
-    <%= link_to 'Back to entities', user_entities_path, class: "ml-2 rounded-lg py-3 px-5 bg-gray-100 inline-block font-medium" %>
+      <% @transactions_per_group.each do |tx| %>
+        <div class="transactions-info">
+          <div class="transaction-icon">
+            <%= image_tag "transaction.png", :alt => "Transactions" %>
+          </div>
+          <div class="name-date-amount">
+            <div class="name-date">
+              <p><%= tx.name %></p>
+              <p class="amount">$<%= tx.amount %></p>
+            </div>
+            <p><%= tx.created_at.to_date %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="add-transaction">
+  <%= link_to "Add Transaction", new_user_entity_path(current_user) %>
+  </div>
+  <div class="back_to_transactions_btn">
+    <%= link_to "Back to categories", user_groups_path(current_user) %>
+  </div>
+
+  <div class="scan">
+    <p>SCAN</p>
   </div>
 </div>
