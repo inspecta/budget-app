@@ -17,6 +17,8 @@
 default: &default
   adapter: postgresql
   encoding: unicode
+  username: <%= ENV['DB_USERNAME'] %>
+  password: <%= ENV['DB_PASSWORD'] %>
   pool: <%= ENV.fetch("RAILS_MAX_THREADS") { 5 } %>
 
 development:
@@ -80,6 +82,6 @@ test:
 production:
   <<: *default
   url: <%= ENV["DATABASE_URL"] %>
-  database: budget_production
-  username: budget
-  password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
+  # database: budget_production
+  # username: budget
+  # password: <%= ENV["BUDGET_DATABASE_PASSWORD"] %>
