@@ -1,5 +1,6 @@
 databases:
-  - name: postgres
+  - name: mysite-db
+    type: postgres
     plan: free
 
 services:
@@ -12,4 +13,4 @@ services:
       - key: DATABASE_URL
         fromDatabase:
           name: mysite-db
-          property: connectionString
+          property: connection_url
