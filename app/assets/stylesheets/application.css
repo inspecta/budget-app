@@ -1,0 +1,419 @@
+@font-face {
+  font-family: "Poppins";
+  src: url("/app/assets/fonts/poppins/Poppins-Black.ttf") format("truetype");
+  font-weight: normal;
+  font-style: normal;
+}
+
+body {
+  font-family: "Poppins", sans-serif;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
+  height: 100vh;
+  width: 98%;
+  margin: auto;
+}
+
+/* Home Page */
+
+.home-page {
+  background-color: #f1f3f2;
+  width: 100%;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+}
+
+.home-header {
+  font-style: italic;
+  font-size: 30px;
+}
+
+.home-btns {
+  width: 90%;
+  text-align: center;
+  position: fixed;
+  bottom: 0;
+}
+
+.login-btn {
+  background-color: #3878c4;
+  padding: 10px;
+}
+
+.login-btn > a {
+  text-decoration: none;
+  color: #fff;
+}
+
+.registration-btn > a {
+  text-decoration: none;
+  color: #999a9b;
+}
+
+/* Login Form */
+
+.login-form,
+.registration-form {
+  width: 100%;
+}
+
+.login-form > form,
+.registration-form > form {
+  width: 100%;
+  margin-bottom: 1em;
+}
+
+.login-form-header,
+.registration-form-header {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  width: 100%;
+  background-color: #3878c4;
+  color: #fff;
+  margin-bottom: 1em;
+}
+
+.categories-header > img {
+  width: 30px;
+  filter: brightness(0) invert(1);
+  margin-right: 2em;
+}
+
+.transactions-header-menu > img {
+  width: 30px;
+  filter: brightness(0) invert(1);
+}
+
+.transaction-icon > img {
+  width: 80px;
+}
+
+.arrow-left > a > img {
+  width: 30px;
+  filter: brightness(0) invert(1);
+  cursor: pointer;
+}
+
+.field > input {
+  width: 100%;
+  padding: 15px 0 15px 0;
+  border: 1px solid rgb(227, 226, 226);
+}
+
+.field > input::placeholder {
+  font-size: 1.2em;
+  color: rgb(167, 167, 167);
+}
+
+.field > p {
+  color: #686868;
+}
+
+.forgot-password {
+  text-align: center;
+}
+
+.forgot-password > a {
+  text-decoration: none;
+  color: rgb(167, 167, 167);
+}
+
+/* Groups */
+
+.categories {
+  width: 100%;
+  background-color: #f1f3f2;
+}
+
+.categories-header {
+  width: 100%;
+  background-color: #3878c4;
+  display: flex;
+  color: #fff;
+  align-items: center;
+  margin-bottom: 1em;
+}
+
+.category {
+  background-color: #fff;
+  width: 85%;
+  margin: 0 auto 1em auto;
+  padding: 0.5em;
+}
+
+.category > a {
+  display: flex;
+  text-decoration: none;
+  gap: 2em;
+}
+
+.category > a > p > img {
+  width: 80px;
+}
+
+.category-details {
+  color: #999a9b;
+}
+
+.category-details > h4 {
+  color: rgb(31, 31, 31);
+}
+
+.add-category {
+  text-align: center;
+  width: 100%;
+}
+
+.add-category > a {
+  text-decoration: none;
+  background-color: #3878c4;
+  color: #f1f3f2;
+  padding: 1em 0 1em 0;
+  display: block;
+  width: 100%;
+  margin: auto;
+}
+
+.back-to-groups {
+  text-align: center;
+  background-color: #d3d3d3;
+  padding: 10px;
+}
+
+.back-to-groups > a {
+  text-decoration: none;
+  color: #686868;
+}
+
+.add-transaction > a {
+  display: block;
+  text-decoration: none;
+  color: #fff;
+  background-color: #3878c4;
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+
+.back_to_transactions_btn > a {
+  text-decoration: none;
+  color: #999a9b;
+  padding: 10px 0 10px 0;
+}
+
+.category-transactions-details-info > a {
+  text-decoration: none;
+  color: #999a9b;
+}
+
+.back-to-groups > a:hover {
+  color: #000;
+}
+
+/*
+  Transactions
+*/
+.transactions-page {
+  width: 95%;
+  background-color: rgb(241, 243, 242);
+}
+
+.transactions-header {
+  background-color: #3878c4;
+  color: #f1f3f2;
+}
+
+.transactions-header-menu {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  color: #fff;
+}
+
+.transactions-header-cats {
+  display: flex;
+  justify-content: flex-end;
+  gap: 1em;
+}
+
+.transactions-details {
+  background-color: #f1f3f2;
+}
+
+.transactions-details > .txn-name-sum {
+  display: flex;
+  justify-content: space-between;
+  padding: 0 10px 0 10px;
+  background-color: #fff;
+  border-bottom: 1px solid #d3d3d3;
+}
+
+.transactions-details > .txn-name-sum > .category-name {
+  color: #999a9b;
+}
+
+.transactions-info {
+  display: flex;
+  width: 100%;
+  align-items: center;
+}
+
+.transactions-details > .transactions-info {
+  background-color: #fff;
+  color: #999a9b;
+  padding: 5px;
+  margin: 0.5em auto 0.5em auto;
+  border: 1px solid #efeeee;
+  width: 95%;
+}
+
+.name-date-amount {
+  flex-grow: 1;
+  padding: 0 0.5em 0 0.5em;
+}
+
+.name-date {
+  display: flex;
+  justify-content: space-between;
+}
+
+.name-date > .amount {
+  color: #000;
+}
+
+.add-transaction {
+  text-align: center;
+}
+
+.back_to_transactions_btn {
+  text-align: center;
+  padding: 10px;
+}
+
+.scan {
+  position: fixed;
+  bottom: 0;
+  background-color: #5fb625;
+  width: 95%;
+  text-align: center;
+  margin: auto;
+}
+
+.scan > p {
+  color: #fff;
+  border: 1px solid #d3d3d3;
+  width: 90%;
+  margin-right: auto;
+  margin-left: auto;
+  text-align: center;
+  padding: 15px;
+  border-radius: 5px;
+}
+
+/*
+  Categories and transactions
+*/
+.category-transactions {
+  width: 100%;
+  background-color: #f1f3f2;
+}
+
+.category-transactions-details {
+  padding: 0 10px 0 10px;
+}
+
+.category-transactions-details-info {
+  background-color: #fff;
+  margin-bottom: 1em;
+}
+
+/*
+  Add Transaction page/form
+*/
+.add-transaction-page {
+  width: 100%;
+  background-color: #f1f3f2;
+}
+
+.add-transaction-page > form {
+  margin-top: 1em;
+  width: 100%;
+}
+
+.add-transaction-page > form input,
+.add-transaction-page > form select {
+  width: 100%;
+  padding: 10px 0 10px 0;
+  margin-bottom: 1em;
+}
+
+.add-transaction-page > form select {
+  border: 1px solid rgb(227, 226, 226);
+  color: #999a9b;
+  font-size: 1em;
+}
+
+.add-transaction-page > form .submit {
+  background-color: #3878c4;
+  color: #efeeee;
+  cursor: pointer;
+}
+
+/*
+  Add Category/Group
+*/
+.add-category-page {
+  width: 100%;
+}
+
+.add-category-page > form {
+  margin-top: 1em;
+}
+
+.add-category-page > form input {
+  width: 100%;
+  padding: 10px 0 10px 0;
+}
+
+.add-category-page > form .add-category-btn {
+  background-color: #3878c4;
+  border: none;
+  color: #efeeee;
+}
+
+/*
+  Errors
+*/
+#error_explanation {
+  border: 1px solid rgb(255, 138, 138);
+  margin-bottom: 1em;
+  border-radius: 5px;
+}
+
+#error_explanation > ul {
+  width: 100%;
+  padding: 0;
+}
+
+#error_explanation > ul > li {
+  list-style: none;
+  color: red;
+  padding: 5px;
+}
+
+/* Notifications */
+
+.notice-container {
+  text-align: center;
+}
+
+.notice {
+  color: rgb(1, 93, 1);
+  background-color: rgb(223, 255, 223);
+  padding: 5px;
+}

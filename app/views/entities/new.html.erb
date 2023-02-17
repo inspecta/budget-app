@@ -1,0 +1,14 @@
+<div class="add-transaction-page">
+  <div class="transactions-header">
+    <div class="transactions-header-menu">
+      <%= image_tag("hamburger.png", :alt => "Menu Btn") %>
+      <p class="">ADD TRANSACTION</p>
+      <%= image_tag("search.png", :alt => "Search") %>
+    </div>
+  </div>
+
+  <%= render "form", entity: @entity %>
+  <div class="back-to-groups">
+    <%= link_to 'Back to transactions', user_groups_path(current_user) %>
+  </div>
+</div>

@@ -1,0 +1,28 @@
+<%= form_with model: group, url: user_groups_path, class: "contents" do |form| %>
+  <% if group.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(group.errors.count, "error") %> prohibited this group from being saved:</h2>
+
+      <ul>
+        <% group.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="my-5">
+    <%= form.text_field :name, class: "", placeholder: "Name" %>
+  </div>
+
+  <div class="my-5">
+    <p>Category Icon</p>
+    <%= image_tag form.object.icon_url if form.object.cached_icon_data %>
+    <%= form.hidden_field :icon, value: form.object.cached_icon_data %>
+    <%= form.file_field :icon %>
+  </div>
+
+  <div class="inline">
+    <%= form.submit "Save", class: "add-category-btn" %>
+  </div>
+<% end %>

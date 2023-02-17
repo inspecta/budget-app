@@ -1,0 +1,39 @@
+<div class="registration-form">
+  <div class="registration-form-header">
+    <p class="arrow-left">
+      <%= link_to root_path do %>
+        <%= image_tag("arrow-left-2.png", :alt => "Left arrow") %>
+      <% end %>
+    </p>
+    <h3>SIGNUP</h3>
+    <p>Next</p>
+  </div>
+
+  <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
+    <%= render "devise/shared/error_messages", resource: resource %>
+
+    <div class="field">
+      <%= f.text_field :name, autofocus: true, autocomplete: "name",
+      placeholder: "Full name" %>
+    </div>
+
+    <div class="field">
+      <%= f.email_field :email, autofocus: true, autocomplete: "email",
+      placeholder: "Email" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password, autocomplete: "new-password",
+      placeholder: "Password (Min - 6 characters)" %>
+    </div>
+
+    <div class="field">
+      <%= f.password_field :password_confirmation, autocomplete: "new-password",
+      placeholder: "Confirm password" %>
+    </div>
+
+    <div class="field">
+      <%= f.submit :submit %>
+    </div>
+  <% end %>
+</div>

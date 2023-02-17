@@ -1,0 +1,14 @@
+<div class="add-category-page">
+  <div class="transactions-header">
+    <div class="transactions-header-menu">
+      <%= image_tag("hamburger.png", :alt => "Menu Btn") %>
+      <P class="">ADD CATEGORY</p>
+      <%= image_tag("search.png", :alt => "Search") %>
+    </div>
+  </div>
+
+  <%= render "form", group: @group %>
+  <div class="back-to-groups">
+    <%= link_to 'Back to groups', user_groups_path %>
+  </div>
+</div>

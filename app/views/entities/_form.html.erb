@@ -1,0 +1,30 @@
+<%= form_with model: entity, url: user_entities_path, class: "contents" do |form| %>
+  <% if entity.errors.any? %>
+    <div id="error_explanation" class="bg-red-50 text-red-500 px-3 py-2 font-medium rounded-lg mt-3">
+      <h2><%= pluralize(entity.errors.count, "error") %> prohibited this entity from being saved:</h2>
+
+      <ul>
+        <% entity.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="field">
+    <%= form.text_field :name, class: "", placeholder: "Name" %>
+  </div>
+
+  <div class="field">
+    <%= form.text_field :amount, class: "", placeholder: "Amount" %>
+  </div>
+
+  <div class="field">
+    <p>Categories</p>
+    <%= form.select :group_id, options_from_collection_for_select(Group.all, :id, :name) %>
+  </div>
+
+  <div class="field">
+    <%= form.submit "Save", class: "submit" %>
+  </div>
+<% end %>

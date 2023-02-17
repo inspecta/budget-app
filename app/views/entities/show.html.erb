@@ -1,0 +1,47 @@
+<div class="transactions-page">
+  <div class="transactions-header">
+    <div class="transactions-header-menu">
+      <%= image_tag("hamburger.png", :alt => "Menu Btn") %>
+      <P class="">TRANSACTIONS</p>
+      <%= image_tag("search.png", :alt => "Search") %>
+    </div>
+    <div class="transactions-header-cats">
+      <p>Most recent</p>
+      <p>Most acient</p>
+    </div>
+  </div>
+  <% if @transactions_per_group.empty? %>
+    <p>No transactions available.</p>
+  <% else %>
+    <div class="transactions-details">
+      <div class="txn-name-sum">
+        <p class="category-name"><%= @category_name.upcase %></p>
+        <p>$<%= @sum %></p>
+      </div>
+      <% @transactions_per_group.each do |tx| %>
+        <div class="transactions-info">
+          <div class="transaction-icon">
+            <%= image_tag "transaction.png", :alt => "Transactions" %>
+          </div>
+          <div class="name-date-amount">
+            <div class="name-date">
+              <p><%= tx.name %></p>
+              <p class="amount">$<%= tx.amount %></p>
+            </div>
+            <p><%= tx.created_at.to_date %></p>
+          </div>
+        </div>
+      <% end %>
+    </div>
+  <% end %>
+  <div class="add-transaction">
+  <%= link_to "Add Transaction", new_user_entity_path(current_user) %>
+  </div>
+  <div class="back_to_transactions_btn">
+    <%= link_to "Back to categories", user_groups_path(current_user) %>
+  </div>
+
+  <div class="scan">
+    <p>SCAN</p>
+  </div>
+</div>

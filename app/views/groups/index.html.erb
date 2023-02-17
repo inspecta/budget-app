@@ -1,0 +1,41 @@
+<div class="categories">
+  <div class="categories-header">
+    <%= image_tag("hamburger.png", :alt => "Menu Btn ") %>
+    <h3 class="font-bold text-4xl">CATEGORIES</h3>
+  </div>
+
+  <div id="groups" class="categories-list">
+    <% if notice.present? %>
+      <div class="notice-container">
+        <p class="notice" id="notice"><%= notice %></p>
+      </div>
+    <% end %>
+    <% if @groups.empty? %>
+      <p class="no-categories">No categories available</p>
+    <% else %>
+        <% @groups.each do |group| %>
+          <div class="category">
+            <%= link_to user_entity_path(current_user.id, group.id) do %>
+              <p class="icon">
+                <%= image_tag group.icon_url if group.icon %>
+              </p>
+              <div class="category-details">
+                <h4 class="categories-name">
+                  <%= group.name.upcase %>
+                  <%= @sum_per_category %>
+                </h4>
+                <p class="category-date-created">
+                  <%= group.created_at.to_date %>
+                </p>
+              </div>
+            <% end %>
+          </div>
+        <% end %>
+    <% end %>
+    <div class="add-category">
+      <%= link_to 'Add Category', new_user_group_path, class: "" %>
+    </div>
+  </div>
+
+
+</div>
