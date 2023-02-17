@@ -1,6 +1,5 @@
 databases:
   - name: mysite-db
-    type: postgres
     plan: free
 
 services:
