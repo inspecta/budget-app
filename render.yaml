@@ -1,6 +1,5 @@
 databases:
   - name: mysite-db
-    databaseName: mysite-db
     type: postgres
     plan: free
 
@@ -8,12 +7,10 @@ services:
   - type: web
     name: mysite
     env: ruby
-    buildCommand: "./bin/render-build.sh"
+    buildCommand: "bundle install --path vendor/bundle --without development:test && bundle exec rake assets:precompile"
     startCommand: "bundle exec puma -C config/puma.rb"
     envVars:
       - key: DATABASE_URL
         fromDatabase:
           name: mysite-db
-          property: connectionString
-      - key: RAILS_MASTER_KEY
-        sync: false
+          property: connection_url
